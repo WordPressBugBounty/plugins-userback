@@ -3,7 +3,7 @@
  * Plugin Name:       Userback
  * Plugin URI:        https://www.userback.io
  * Description:       Userback WordPress Plugin
- * Version:           1.0.14
+ * Version:           1.0.15
  * Requires at least: 3.5.0
  * Author:            Lee Le @ Userback
  */

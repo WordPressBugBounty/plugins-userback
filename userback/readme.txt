@@ -2,9 +2,9 @@
 Contributors: userback
 Tags: screenshot, feedback, bug tracking, notification, integration, image, visual feedback
 Requires at least: 3.5.0
-Tested up to: 6.1
-Requires PHP: 5.4
-Stable tag: 1.0.14
+Tested up to: 6.8.1
+Requires PHP: 7.4
+Stable tag: 1.0.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
