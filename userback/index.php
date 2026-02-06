@@ -3,7 +3,7 @@
  * Plugin Name:       Userback
  * Plugin URI:        https://www.userback.io
  * Description:       Userback WordPress Plugin
- * Version:           1.0.15
+ * Version:           1.0.17
  * Requires at least: 3.5.0
  * Author:            Lee Le @ Userback
  */
@@ -135,8 +135,29 @@
 
     // include JS / CSS files
     function userback_include_admin_script($hook) {
-        wp_enqueue_script('userback-admin-js',  plugins_url(PLUGIN_DIR_USERBACK . '/javascript/admin.js'));
-        wp_enqueue_style('userback-admin-css',  plugins_url(PLUGIN_DIR_USERBACK . '/css/admin.css'));
+        wp_enqueue_script(
+            'userback-admin-js',
+            plugins_url(PLUGIN_DIR_USERBACK . '/javascript/admin.js'),
+            array('jquery'),
+            false,
+            true
+        );
+
+        wp_enqueue_style(
+            'userback-admin-css',
+            plugins_url(PLUGIN_DIR_USERBACK . '/css/admin.css')
+        );
+
+        // 🔐 Generate nonces and expose to JS
+        wp_localize_script(
+            'userback-admin-js',
+            'UserbackAjax',
+            array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce_get'  => wp_create_nonce('userback_get_json'),
+                'nonce_save' => wp_create_nonce('userback_save'),
+            )
+        );
     }
 
     // overview page
@@ -146,6 +167,33 @@
 
     // XHR handler for the page payload
     function userback_get_json() {
+        // Nonce check (expects nonce sent as 'nonce' or '_ajax_nonce')
+        if (
+            ! isset($_REQUEST['nonce']) ||
+            ! wp_verify_nonce($_REQUEST['nonce'], 'userback_get_json')
+        ) {
+            wp_send_json_error(
+                array('message' => 'Invalid nonce'),
+                403
+            );
+        }
+
+        // Ensure user is logged in
+        if (!is_user_logged_in() ) {
+            wp_send_json_error(
+                array( 'message' => 'Unauthorized' ),
+                401
+            );
+        }
+
+        // Admin-only capability check
+        if (!current_user_can( 'manage_options' ) ) {
+            wp_send_json_error(
+                array( 'message' => 'Forbidden' ),
+                403
+            );
+        }
+
         $response = userback_get_array();
 
         print wp_send_json(array(
@@ -229,9 +277,31 @@
     function userback_save() {
         global $wpdb;
 
-        if (!isset($_POST['csrf_token']) || !wp_verify_nonce($_POST['csrf_token'], 'userback_plugin_settings_update') || !current_user_can('manage_options')) {
-            print wp_send_json(false);
-            wp_die(__('Security check failed.'));
+        // Nonce check (expects nonce sent as 'nonce' or '_ajax_nonce')
+        if (
+            ! isset($_REQUEST['nonce']) ||
+            ! wp_verify_nonce($_REQUEST['nonce'], 'userback_save')
+        ) {
+            wp_send_json_error(
+                array('message' => 'Invalid nonce'),
+                403
+            );
+        }
+
+        // Ensure user is logged in
+        if (!is_user_logged_in() ) {
+            wp_send_json_error(
+                array( 'message' => 'Unauthorized' ),
+                401
+            );
+        }
+
+        // Admin-only capability check
+        if (!current_user_can( 'manage_options' ) ) {
+            wp_send_json_error(
+                array( 'message' => 'Forbidden' ),
+                403
+            );
         }
 
         if (isset($_POST['data'])) {

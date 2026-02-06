@@ -13,7 +13,10 @@ jQuery(document).ready(function($) {
 
             // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
             // fetch data
-            $.post(ajaxurl, {action: 'get_userback'}, $.proxy(function(response) {
+            $.post(ajaxurl, {
+                action: 'get_userback',
+                nonce: UserbackAjax.nonce_get
+            }, $.proxy(function(response) {
                 data = $.extend({}, this._default, response.data);
 
                 this.populatePageData(response.page);
@@ -50,16 +53,17 @@ jQuery(document).ready(function($) {
             // trim
             data.access_token = $.trim(data.access_token);
 
-            // CSRF protection
-            var csrf_token = $('[name="userback_plugin_nonce"]').val();
-
             $('[name="rp-access-token"]').val(data.access_token);
 
             $('#save').prop('disabled', true);
 
             $('.save-success').remove();
 
-            $.post(ajaxurl, {action: 'save_userback', data: data, csrf_token: csrf_token}, function(response) {
+            $.post(ajaxurl, {
+                action: 'save_userback',
+                data: data,
+                nonce: UserbackAjax.nonce_save
+            }, function(response) {
                 $('#save').prop('disabled', false);
                 $('<span>').addClass('save-success').text('Saved!').insertAfter($('#save'));
             });

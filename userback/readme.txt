@@ -1,98 +1,68 @@
 === Userback ===
 Contributors: userback
-Tags: screenshot, feedback, bug tracking, notification, integration, image, visual feedback
+Tags: bug-tracking, feedback, surveys
+Description: Get high-quality visual feedback and bug reports directly from your WordPress website
 Requires at least: 3.5.0
-Tested up to: 6.8.1
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.15
+Stable tag: 1.0.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-A beautifully simple way to get customer feedback.
+[Userback](https://userback.io) is a powerful visual feedback tool that makes it easy to collect website feedback, report bugs, and collaborate with your team—all from your WordPress site. Whether you're a developer, designer, or product manager, Userback helps you gather clear, actionable insights to improve your website  faster.
+With Userback, users can submit annotated screenshots, video recordings, and comments directly on your site, helping you identify issues and improve the user experience without endless email threads or unclear feedback.
 
-Userback is a customer feedback solution that lets you collect and manage high-quality feedback from websites and applications using video and annotated screenshots.
+### How It Works
+With Userback, your clients and team can easily submit feedback and bug reports directly on your WordPress site.
 
-Built for designers, developers, product managers and web agencies, Userback will save you time by managing feedback for all your projects in one place.
+Our feedback widget captures a screenshot automatically, allowing users to annotate and highlight issues for clear communication.
 
-Get instantly notified when new feedback is created and streamline your workflows by connecting Userback with project management looks like Jira, Slack, Basecamp and more.
+All feedback can seamlessly be managed in Userback, or sent to your preferred project management tool, complete with technical details to help developers quickly understand and reproduce issues.
 
-And collaborate with your team by inviting them to contribute on your Userback projects. You can even invite your clients to see the feedback on their own projects!
+With our 2-way sync integrations, you can collaborate effortlessly, respond to feedback, update statuses, and keep clients informed without leaving your workflow.
 
-**Benefits**
-* Get high-quality visual feedback with annotations
-* Ditch huge email chains that are guaranteed to miss important details
-* Save time by not having to chase clients to approve minor changes
-* Manage all website feedback in the same place
-* No more printed paper with red pen and scribble!
+### Key Features
+**Visual Feedback** - Users can submit annotated screenshots and video recordings to highlight issues.
 
-**Start free**
-Create an account and start free at [https://www.userback.io](https://www.userback.io).
+**Bug Reporting** - Capture technical details like browser info, console logs, and screen size for faster issue resolution.
 
-== Installation ==
+**Customizable** Feedback Widget - Control the look, feel, and functionality to match your brand.
 
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the Settings -> Userback screen to configure the plugin
+**User Surveys** - Collect targeted insights with customizable surveys to understand user needs, preferences, and pain points.
+
+**Session Replay** - Watch real user sessions to see exactly how they interact with your site, helping you identify friction points and improve the user experience.
+
+**Team Collaboration** - Assign feedback, track progress, and integrate with project management tools.
+
+**Workflow Automation** - Streamline your feedback process with automated workflows and notifications.
+
+
+### WordPress Plugin Features
+**Easy Setup** - Install and activate in just a few clicks - no coding required.
+
+**Widget Control** - Show or hide the feedback widget for specific users or pages.
+
+**Performance Optimized** - The lightweight plugin ensures your site speed remains unaffected.
+
+### Start Free
+Ready to improve your WordPress website with better feedback?
+Get started with a free Userback account at [userback.io](https://userback.io).
 
 == Frequently Asked Questions ==
 
-= What does Userback do? =
-Userback lets you collect feedback from your web projects with real-time screenshots and instant notifications.
+= What is Userback? =
+Userback is a visual feedback and bug reporting tool that helps you collect feedback from website visitors, software users, and internal teams. The Userback WordPress plugin makes it easy to add a feedback widget to your site, allowing users to report issues, share ideas, and provide comments with screenshots and annotations.
 
-= Does Userback work in local development environments? =
-Yes, it absolutely does. Unlike most other visual feedback tools, Userback works in local development environments.
+= Can I customize the feedback widget to match my brand? =
+Yes! Userback allows you to customize the widget's appearance, feedback types, colors, and branding. You can also configure feedback workflows, automate notifications, and sync responses with tools like Jira, Trello, and Slack.
 
-= Can I customize the Userback widget? =
-Yes, the Userback widget can be fully customized directly in the app or via JavaScript API.
+= Does the Userback plugin slow down my website? =
+No, the Userback plugin is lightweight and optimized for performance. It loads asynchronously, meaning it won’t impact your site’s loading speed or performance.
 
-= Can Userback be integrated with other platforms? =
-Yes, Userback integrates with a full range of third party platforms including: JIRA, HipChat, Slack, WordPress, Teamwork, and more.
+= Can I collect feedback from logged-in users only? =
+Yes! Userback allows you to control who can submit feedback. You can configure the widget to only appear for logged-in users, ensuring feedback comes from registered members, customers, or your internal team.
 
-= Can I programmatically send additional data to Userback? =
-Yes, you can use Userback's JavaScript API to easily send custom data along with each feedback.
-
-= Do I have to embed the widget code to be able to use Userback? =
-No, you can also install Userback's browser extension which lets you collect feedback from any website.
-
-
-== Screenshots ==
-1. Plugin Options
-2. Feedback Widget
-3. Annotate on live website
-4. Collaborate on Feedback
-5. Dashboard
-6. Projects
-7. Feedback Management
-8. Integrate Slack, Microsoft Teams or your project management system.
-
-== Changelog ==
-
-= 1.0.14 =
-Added CSRF protection to plugin settings update
-
-= 1.0.8 =
-Minor CSS improvements
-
-= 1.0.5 =
-Ask for access token only
-
-= 1.0.4 =
-Added support for user roles
-
-= 1.0.3 =
-Added support for Multisite
-
-= 1.0.2 =
-Added options to select pages or blog posts only
-Added options to show widget to logged in users only
-
-= 1.0.1a =
-Fixed a typo
-
-= 1.0.1 =
-Added ability to select Draft or Pending Review pages only
-
-= 1.00 =
-Office Release!
+= Is Userback free to use? =
+Yes, Userback offers a free plan to collect unlimited feedback without any cost. This plan includes essential features such as the feedback widget, enabling you to experience how the platform works before committing to a paid plan. Visit [userback.io](https://userback.io) for pricing details.
